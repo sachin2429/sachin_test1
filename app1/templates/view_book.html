@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Book Details</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>ID</th>
+                    <th>Book Name</th>
+                    <th>Author Name</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example rows, replace with dynamic content -->
+                {% for book in books %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.book_name }}</td>
+                    <td>{{ book.author_name }}</td>
+                    <td>${{ book.price }}</td>
+                    <td><a href="..\view_update_book\{{ book.id }}">&#9998; Edit</a></td>
+                    <td><a href="#">&#128465; Delete</a></td>
+                </tr>
+                {% endfor %}
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
